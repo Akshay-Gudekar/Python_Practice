@@ -1,53 +1,83 @@
-import { useState } from "react"
+import { useState } from "react";
 
-const ContactForm = ({ }) => {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
+const ContactForm = ({ existingContact = {}, updateCallback }) => {
+    const [firstName, setFirstName] = useState(existingContact.firstName || "");
+    const [lastName, setLastName] = useState(existingContact.lastName || "");
+    const [email, setEmail] = useState(existingContact.email || "");
 
-    const onSubmit= async(e) =>{
+    const updating = Object.entries(existingContact).length !== 0
+
+    const onSubmit = async (e) => {
         e.preventDefault()
 
-        const data ={
+        const data = {
             firstName,
             lastName,
             email
         }
-        const url="http://127.0.0.1:5000/create_contact"
+        const url = "http://127.0.0.1:5000/" + (updating ? `update_contact/${existingContact.id}` : "create_contact")
         const options = {
-            method: "POST",
+            method: updating ? "PATCH" : "POST",
             headers: {
-                "Content-Type":"application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(data)
         }
         const response = await fetch(url, options)
-        if (response.status !==201 && response.status !== 200) {
+        if (response.status !== 201 && response.status !== 200) {
             const data = await response.json()
             alert(data.message)
-        }else{
-            //successful
+        } else {
+            updateCallback()
         }
-
     }
 
-    return <form onSubmit={onSubmit}>
-        <div>
-            <label htmlFor="firstName">First Name:</label>
-            <input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+    return (
+        <form onSubmit={onSubmit}>
+        <div className="form-group">
+            <label className="form-label" htmlFor="firstName">First Name</label>
+            <input
+            className="form-input"
+            type="text"
+            id="firstName"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+            />
         </div>
-        <div>
-            <label htmlFor="lastName">Last Name:</label>
-            <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+        
+        <div className="form-group">
+            <label className="form-label" htmlFor="lastName">Last Name</label>
+            <input
+            className="form-input"
+            type="text"
+            id="lastName"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+            />
         </div>
-        <div>
-            <label htmlFor="email">Email:</label>
-            <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+    
+        <div className="form-group">
+            <label className="form-label" htmlFor="email">Email</label>
+            <input
+            className="form-input"
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            />
         </div>
-        <button type="submit">Create Contact</button>
+    
+        <button 
+            className="button button-primary w-full"
+            type="submit"
+        >
+            {updating ? 'Update Contact' : 'Create Contact'}
+        </button>
+        </form>
+    );
+};
 
-    </form>
-
-}
-
-export default ContactForm;
+export default ContactForm

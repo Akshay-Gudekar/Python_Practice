@@ -4,9 +4,9 @@ from models import Contact
 
 @app.route("/contacts", methods=["GET"])
 def get_contacts():
-    contacts =Contact.query.all
-    json_contacts= list(map(lambda x: x.to_json(), contacts))
-    return jsonify({"contacts" : json_contacts})
+    contacts = Contact.query.all()  # Add parentheses to all
+    json_contacts = list(map(lambda x: x.to_json(), contacts))
+    return jsonify({"contacts": json_contacts})
 
 @app.route("/create_contact", methods=["POST"])
 def create_contact():
@@ -59,5 +59,4 @@ def delete_contact(user_id):
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)  # Add host parameter
