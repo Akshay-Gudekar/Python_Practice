@@ -602,6 +602,14 @@
       <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
       <style>
         <style-rule element='mark'>
+          <encoding attr='color' field='[attr:Calculation_1979613514636005380:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>false</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>true</bucket>
+            </map>
+          </encoding>
           <encoding attr='color' field='[hr:time:ok]' type='palette'>
             <map to='#499894'>
               <bucket>8</bucket>
@@ -697,14 +705,6 @@
             </map>
             <map to='#f28e2b'>
               <bucket>&quot;Clear&quot;</bucket>
-            </map>
-          </encoding>
-          <encoding attr='color' field='[attr:Calculation_1979613514636005380:nk]' type='palette'>
-            <map to='#4e79a7'>
-              <bucket>false</bucket>
-            </map>
-            <map to='#f28e2b'>
-              <bucket>true</bucket>
             </map>
           </encoding>
         </style-rule>
@@ -1567,8 +1567,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1000' minheight='1000' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='18' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='97916' id='17' param='vert' type-v2='layout-flow' w='98828' x='586' y='1042'>
+            <zone h='100000' id='20' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97916' id='19' param='vert' type-v2='layout-flow' w='98828' x='586' y='1042'>
                 <zone h='6250' id='12' mode='type_in' param='[Parameters].[Parameter 2]' type-v2='paramctrl' w='14056' x='71376' y='651'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -1845,7 +1845,7 @@
           </selection-collection>
         </viewpoint>
       </viewpoints>
-      <active id='14' />
+      <active id='-1' />
       <simple-id uuid='{D4B073B3-45CA-4B4C-B7FA-1799944DA9C1}' />
     </window>
   </windows>
