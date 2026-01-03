@@ -45,3 +45,36 @@ for i in range(0, len(s), 2):
 #     elif item.isdigit():
 #         # Multiply the stored character by the current digit
 #         print(char * int(item))
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+# Achieve the below output using given input
+# given input a4b2c3 Expected output aaaabbccc
+# str="a4b2c3"
+# final_char=""
+# for i in str:
+#     if i.isdigit():
+#         index=str.find(i)
+#         char=str[index-1]
+#         for j in range(0,int(i)):
+#             final_char=final_char+char
+# print("final_char : ",final_char)
