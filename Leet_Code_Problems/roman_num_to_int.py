@@ -25,3 +25,10 @@ class Solution:
 # Example usage:
 solution = Solution()
 print(solution.romanToInt("MCMXCIV"))  # Output: 1994
+
+
+import roman
+i = roman.fromRoman("MCMIV")
+j = roman.fromRoman("LV")
+k = roman.fromRoman("XXIV")
+print(i,j,k)
