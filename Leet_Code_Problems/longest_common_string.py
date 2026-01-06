@@ -15,6 +15,7 @@ class Solution:
                     return strs[0][:i]
 
         return strs[0]
+
     # Below is the alternate method to solve this code.
     # def longestCommonPrefix(strs):
     #     if not strs:
