@@ -1,12 +1,10 @@
 from typing import Optional
 
-
 # 1. Define the Node structure
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
-
 
 # 2. The Solution class containing the logic
 class Solution:
@@ -22,7 +20,6 @@ class Solution:
                 current = current.next
 
         return head
-
 
 # 3. Helper functions to make testing easier
 def create_linked_list(arr):
