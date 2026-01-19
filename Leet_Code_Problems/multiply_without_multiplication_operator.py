@@ -13,6 +13,11 @@ class Solution:
             if b & 1:
                 res += a
 
+            # Operation | Purpose,            | Math Equivalent
+            # x << n,   | Make number larger  | x×2^n               left shift
+            # x >> n,   | Make number smaller | x÷2^n               right shift
+
+
             # Double 'a' and halve 'b'
             a <<= 1  # a = a * 2
             b >>= 1  # b = b // 2
